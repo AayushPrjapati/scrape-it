@@ -1,0 +1,404 @@
+:root {
+    --bg-color: #0d1117;
+    --card-bg: rgba(22, 27, 34, 0.65);
+    --card-border: rgba(48, 54, 61, 0.8);
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --accent-blue: #2f81f7;
+    --accent-blue-hover: #1f6feb;
+    --input-bg: #010409;
+    --input-border: #30363d;
+    --input-focus: #58a6ff;
+    --person-color: #a371f7;
+    --company-color: #3fb950;
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(163, 113, 247, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(63, 185, 80, 0.08), transparent 25%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    line-height: 1.5;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+header {
+    text-align: center;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+
+    background: linear-gradient(to right, #e6edf3, #7d8590);
+
+    /* Standard property */
+    background-clip: text;
+
+    /* Required for WebKit browsers */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Fallback */
+    color: #e6edf3;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card:nth-child(1):hover {
+    border-color: rgba(163, 113, 247, 0.4);
+}
+
+.card:nth-child(2):hover {
+    border-color: rgba(63, 185, 80, 0.4);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-wrap svg {
+    width: 24px;
+    height: 24px;
+}
+
+.person-icon {
+    background: rgba(163, 113, 247, 0.15);
+    color: var(--person-color);
+    box-shadow: 0 0 20px rgba(163, 113, 247, 0.2);
+}
+
+.company-icon {
+    background: rgba(63, 185, 80, 0.15);
+    color: var(--company-color);
+    box-shadow: 0 0 20px rgba(63, 185, 80, 0.2);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.input-group,
+.output-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+input[type="url"] {
+    flex: 1;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+input[type="url"]:focus {
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.action-btn {
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, filter 0.2s ease;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: var(--accent-blue-hover);
+}
+
+.action-btn:active {
+    transform: scale(0.97);
+}
+
+.action-btn:disabled,
+.action-btn.loading {
+    cursor: not-allowed;
+    filter: brightness(0.7);
+    transform: none;
+    pointer-events: none;
+}
+
+.spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.output-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    flex: 1;
+    min-height: 250px;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s ease;
+    line-height: 1.6;
+}
+
+textarea:focus {
+    border-color: var(--input-focus);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--input-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        padding: 0.85rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Fullscreen Output Styles */
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.output-header label {
+    margin-bottom: 0;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.icon-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.textarea-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Fullscreen mode (Column elongation) */
+.grid-container {
+    position: relative;
+    max-width: 100%;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, min-height 0.4s ease, opacity 0.4s ease;
+}
+
+body.fullscreen-active .card:not(.has-fullscreen) {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Take full width but be invisible so grid sizing doesn't break horribly */
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.card.has-fullscreen {
+    grid-column: 1 / -1;
+    min-height: 50vh;
+}
+
+.output-group.fullscreen textarea {
+    min-height: 60vh;
+    transition: min-height 0.4s ease;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Scraper Interface</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Data Extraction Hub</h1>
+            <p>Enter a URL to scrape person or company data</p>
+        </header>
+
+        <main class="grid-container">
+            <!-- Person Profile Section -->
+            <section class="card">
+                <div class="card-header">
+                    <div class="icon-wrap person-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <h2>Person Profile</h2>
+                </div>
+                
+                <div class="input-group">
+                    <label for="person-url">Person linkedin-URL</label>
+                    <div class="input-wrapper">
+                        <input type="url" id="person-url" placeholder="https://linkedin.com/..." autocomplete="off">
+                        <button class="action-btn" id="scrape-person">Extract</button>
+                    </div>
+                </div>
+
+                <div class="output-group">
+                    <div class="output-header">
+                        <label for="person-output">Extracted Data</label>
+                        <button class="icon-btn fullscreen-btn" aria-label="Toggle Fullscreen" onclick="toggleFullscreen(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="maximize-icon"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="minimize-icon" style="display: none;"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
+                        </button>
+                    </div>
+                    <div class="textarea-wrapper" id="person-wrapper">
+                        <textarea id="person-output" placeholder="Results will appear here..." readonly></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Company Profile Section -->
+            <section class="card">
+                <div class="card-header">
+                    <div class="icon-wrap company-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
+                    </div>
+                    <h2>Company Profile</h2>
+                </div>
+                
+                <div class="input-group">
+                    <label for="company-url">Company URL</label>
+                    <div class="input-wrapper">
+                        <input type="url" id="company-url" placeholder="https://linkedin.com/company/name" autocomplete="off">
+                        <button class="action-btn" id="scrape-company">Extract</button>
+                    </div>
+                </div>
+
+                <div class="output-group">
+                    <div class="output-header">
+                        <label for="company-output">Extracted Data</label>
+                        <button class="icon-btn fullscreen-btn" aria-label="Toggle Fullscreen" onclick="toggleFullscreen(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="maximize-icon"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="minimize-icon" style="display: none;"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
+                        </button>
+                    </div>
+                    <div class="textarea-wrapper" id="company-wrapper">
+                        <textarea id="company-output" placeholder="Results will appear here..." readonly></textarea>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+<script src="/main.js"></script>
+
+</body>
+</html>
