@@ -40,4 +40,4 @@ That’s it.
 
 ## ▶️ How to run
 
-You Dont have to, You Just [TAP HERE](https://aayushprjapati.github.io/scrape-/)
+You Dont have to, You Just [TAP HERE](https://aayushprjapati.github.io/scrape-it/)
